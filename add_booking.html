@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="title">Add a New Booking</h1>
+        
+        <form method="post" class="booking-form">
+            <label for="room_code">Room:</label>
+            <select name="room_code" required>
+                {% for room in rooms %}
+                    <option value="{{ room.room_code }}">{{ room.room_code }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="date">Date:</label>
+            <input type="date" name="date" required>
+
+            <label for="start_time">Start Time:</label>
+            <input type="time" name="start_time" required>
+
+            <label for="end_time">End Time:</label>
+            <input type="time" name="end_time" required>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <a href="{{ url_for('bookings') }}" class="btn back-btn">Back to Bookings</a>
+    </div>
+{% endblock %}

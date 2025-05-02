@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Rooms{% endblock %}
+
+{% block content %}
+<h1>Available Rooms</h1>
+<div class="room-container">
+    {% for room in rooms %}
+        <div class="room-card">
+            <h3>{{ room.room_code }}</h3>
+            <p><strong>Type:</strong> {{ room.room_type }}</p>
+            <p><strong>Capacity:</strong> {{ room.capacity }}</p>
+            <p><strong>Room Location: </strong>{{ room.room_loc }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

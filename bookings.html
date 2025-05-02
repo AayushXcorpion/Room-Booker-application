@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Bookings{% endblock %}
+
+{% block content %}
+    <h1>Bookings</h1>
+
+    <!-- Button to navigate to the add booking page -->
+    <a href="{{ url_for('add_booking') }}" class="btn">Make a Booking</a>
+
+    <table class="bookings-table">
+        <tr>
+            <th>Booking ID</th>
+            <th>User ID</th>
+            <th>Room Code</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.booking_id }}</td>
+            <td>{{ booking.user_id }}</td>
+            <td>{{ booking.room_code }}</td>
+            <td>{{ booking.date }}</td>
+            <td>{{ booking.start_time }}</td>
+            <td>{{ booking.end_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
